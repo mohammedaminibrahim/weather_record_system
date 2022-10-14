@@ -27,8 +27,8 @@ if(empty($password) && empty($password)){
           foreach($columns as $column){
             //verify password
             if(password_verify($password, $column['password'])){
-              $_SESSION['fullname'] = $_POST['fullname'];
-              $_SESSION['email'] = $_POST['email'];
+              $_SESSION['stationid'] = $_POST['stationid'];
+              $_SESSION['stationname'] = $_POST['stationname'];
               header("location: dashboard.php");
               ob_end_flush();
             } else{

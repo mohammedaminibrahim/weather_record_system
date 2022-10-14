@@ -35,7 +35,7 @@ require_once("./includes/dashboard-head.php");?>
                                 <div class="card-header">
                                     <div class="row align-items-center">
                                         <div class="col">
-                                            <h2 class="fs-5 fw-bold mb-0">All Districts</h2>
+                                            <h2 class="fs-5 fw-bold mb-0">Edit Station</h2>
                                         </div>
                                         <!-- <div class="col text-end">
                                             <a href="#" class="btn btn-sm btn-primary">See all</a>
@@ -83,7 +83,7 @@ require_once("./includes/dashboard-head.php");?>
                                                             <td>{$createdat}</td>
 
                                                             <td>
-                                                            <a href='edit-stations.php?id={$id}' role='button' class='btn btn-primary'>Edit</a>
+                                                            <a href='edit-station.php?id={$id}' role='button' class='btn btn-primary'>Edit</a>
                                                             <a href='delete-station.php?id={$id}' role='button' class='btn btn-danger'>Delete</a>
                                                             </td>
                                                         </tr>
