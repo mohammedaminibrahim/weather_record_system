@@ -69,7 +69,7 @@
             <div class="media d-flex align-items-center">
               <img class="avatar rounded-circle" alt="Image placeholder" src="./assets/img/man.png">
               <div class="media-body ms-2 text-dark align-items-center d-none d-lg-block">
-                <span class="mb-0 font-small fw-bold text-gray-900"><?=  print_r($_SESSION['fullname']);?></span>
+                <span class="mb-0 font-small fw-bold text-gray-900"></span>
               </div>
             </div>
         </li>

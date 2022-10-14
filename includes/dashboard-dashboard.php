@@ -9,13 +9,13 @@
                                     </div>
                                     <div class="d-sm-none">
                                         <h2 class="h5">Today's Birth</h2>
-                                        <h3 class="fw-extrabold mb-1"><?= $totalNumberOfbirth;?></h3>
+                                        <h3 class="fw-extrabold mb-1">8</h3>
                                     </div>
                                 </div>
                                 <div class="col-12 col-xl-7 px-xl-0">
                                     <div class="d-none d-sm-block">
                                         <h2 class="h6 text-gray-400 mb-0">Today's Birth</h2>
-                                        <h3 class="fw-extrabold mb-2"><?= $totalNumberOfbirth;?></h3>
+                                        <h3 class="fw-extrabold mb-2">9</h3>
                                     </div>
                                     <small class="d-flex align-items-center text-gray-500">
                                     As at- <?php echo date("d-m-y");?> 
@@ -38,13 +38,13 @@
                                     </div>
                                     <div class="d-sm-none">
                                         <h2 class="fw-extrabold h5">Death</h2>
-                                        <h3 class="mb-1"><?=$totalNumberOfDeath;?></h3>
+                                        <h3 class="mb-1">9</h3>
                                     </div>
                                 </div>
                                 <div class="col-12 col-xl-7 px-xl-0">
                                     <div class="d-none d-sm-block">
                                         <h2 class="h6 text-gray-400 mb-0">Death</h2>
-                                        <h3 class="fw-extrabold mb-2"><?=$totalNumberOfDeath;?></h3>
+                                        <h3 class="fw-extrabold mb-2">9</h3>
                                     </div>
                                     <small class="d-flex align-items-center text-gray-500">
                                         As at- <?php echo date("d-m-y");?> 
@@ -71,34 +71,11 @@
                                         <h3 class="mb-1">50.88%</h3>
                                     </div>
                                 </div>
-                                <?php
-                                
-                                require_once("./config.php");
-                                $sqltotalNumberOfBirth = "SELECT * FROM birth";
-                                $statement = $conn->prepare($sqltotalNumberOfBirth);
-                                $results = $statement->execute();
-                                $totalNumberOfBirth = $statement->rowCount();
-                            
-                                $sqltotalNumberOfBirth = "SELECT SUM(population) AS totalPop FROM population";
-                                $statement = $conn->prepare($sqltotalNumberOfBirth);
-                                $results = $statement->execute();
-                                $columns = $statement->fetch(PDO::FETCH_ASSOC);
-                                $totalPopulation = $columns['totalPop'];
-                                //$totalPopulation = $statement->rowCount();
-                               // $totalPopulation = $totalPopulation + $totalPopulation;
-                            
                              
-                                   
-                            
-                                    $totalBirthRate = ($totalNumberOfBirth / $totalPopulation) * 10000;
-                                   
-                                
-                                
-                                ;?>
                                 <div class="col-12 col-xl-7 px-xl-0">
                                     <div class="d-none d-sm-block">
                                         <h2 class="h6 text-gray-400 mb-0"> Birth & Death Ratio</h2>
-                                        <h3 class="fw-extrabold mb-2"><?= round($totalBirthRate);?>%</h3>
+                                        <h3 class="fw-extrabold mb-2">%</h3>
                                     </div>
                                     <small class="text-gray-500">
                                     As at- <?php echo date("d-m-y");?> 

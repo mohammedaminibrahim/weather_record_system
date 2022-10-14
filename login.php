@@ -16,7 +16,7 @@ if(empty($password) && empty($password)){
   $_SESSION['message'] = "All Fields are required...**";
   $_SESSION['alert'] = "alert alert-warning";
 } else {
-  $sqlSelectEmail = "SELECT * from headquaters WHERE email = '$email'";
+  $sqlSelectEmail = "SELECT * from users WHERE email = '$email'";
   $statement = $conn->prepare($sqlSelectEmail);
   $results = $statement->execute();
   $rows = $statement->rowCount();
@@ -103,7 +103,7 @@ if(empty($password) && empty($password)){
                 </div>
 
                 ADMIN LOGIN
-                <span class="blockquote-footer-source">Manager | Birth & Death Registry</span>
+                <span class="blockquote-footer-source">Manager | Weather Record System</span>
               </figcaption>
             </figure>
             <!-- End Blockquote -->

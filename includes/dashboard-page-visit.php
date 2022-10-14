@@ -26,28 +26,8 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                            <?php
                                             
-                                                require_once("././config.php");
-
-                                                $sqlSelectMostRecentBirth = "SELECT * FROM birth";
-                                                $statement = $conn->prepare($sqlSelectMostRecentBirth);
-                                                $results = $statement->execute();
-                                                $rows = $statement->rowCount();
-                                                $columns = $statement->fetchAll();
-
-                                                if($results){
-                                                    foreach($columns as $column){
-                                                        $id = $column['id'];
-                                                        $nameofbaby = $column['nameofbaby'];
-                                                        $nameofmother = $column['nameofmother'];
-                                                        $dateofbirth = $column['dateofbirth'];
-                                                        $nameoffather = $column['nameoffather'];
-                                                        $addressofparents = $column['addressofparents'];
-                                                        $contactofparents = $column['contactofparents'];
-
-                                                        echo "
-                                                        <tr>
+                                         <tr>
                                                         <th class='text-gray-900' scope='row'>
                                                             {$id}
                                                         </th>
@@ -68,16 +48,6 @@
                                                         </td>
                                                       
                                                         </tr>
-                                                        ";
-
-                                                    }
-                                                } else{ 
-                                                    $_SESSION['message'] = "Oooops Something went wrong!!";
-                                                    $_SESSION['alert'] = "alert alert-warning";
-                                                }
-                                            
-                                            ;?>
-                                       
                                        
                                         </tbody>
                                     </table>
