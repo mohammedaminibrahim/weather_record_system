@@ -67,13 +67,14 @@ require_once("./includes/dashboard-head.php");?>
                                         $_SESSION['alert'] = "alert alert-warning";
                                     } else{
                                         //insert into database
-                                        $sqlInsertdailyRecords = "INSERT INTO daily_records()
-                                        VALUES()";
+                                        $sqlInsertdailyRecords = "INSERT INTO daily_records(stationid, date, rainfall_mm, tempmax, tempmin, winrun, direction, speed, rel_humudity_0600, rel_humudity_0200, rel_humudity_1200, rel_humudity_1500, sunshine, remark)
+                                        VALUES('$stationid', '$date', '$rainfall_mm', '$tempmax', '$tempmin', '$winrun', '$direction', '$speed', '$rel_humudity_0600', '$rel_humudity_0200', '$rel_humudity_1200', '$rel_humudity_1500', '$sunshine', '$remark')";
                                         $statement = $conn->prepare($sqlInsertdailyRecords);
                                         $results = $statement->execute();
                                         if($results){
                                             $_SESSION['message'] = "Recoreds Recorded Successfully!!";
                                             $_SESSION['alert'] = "alert alert-success";
+                                            header("location: view-daily-records.php");
                                         } else {
                                             $_SESSION['message'] = "Oooops Something Went Wrong!!";
                                                  $_SESSION['alert'] = "alert alert-warning";
