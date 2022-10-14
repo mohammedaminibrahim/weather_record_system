@@ -1,5 +1,6 @@
 <?php 
 session_start();
+ob_start();
 require_once("./includes/dashboard-head.php");?>
 
        <?php
@@ -37,19 +38,37 @@ require_once("./includes/dashboard-head.php");?>
                           $stationdistrict = sterilize($_POST['stationdistrict']);
                           $stationregion = sterilize($_POST['stationregion']);
 
-                          if(!empty($stationname) && !empty($stationdistrict) && !empty($stationregion)){
-                            $sqlInsertStation = "INSERT INTO stations(stationname, stationdistrict, stationregion)
-                             VALUES('$stationname', '$stationdistrict', '$stationregion')";
-                             $statement = $conn->prepare($sqlInsertStation);
-                             $results = $statement->execute();
 
-                             if($results){
-                              $_SESSION['message'] = "Station Created Successfully!!";
-                              $_SESSION['alert'] = "alert alert-success";
-                             } else {
-                              $_SESSION['message'] = "Ooops Something Went Wrong!!";
-                              $_SESSION['alert'] = "alert alert-danger";
-                             }
+                          $string = 'ABCDEFGHIJKMNOPQRSTUVWXYZ';
+                          $stationid = substr(str_shuffle($string), 0, 10);
+                          $stationpassword = "12345678";
+                          if(!empty($stationname) && !empty($stationdistrict) && !empty($stationregion)){
+                           //check if station already exist
+                           $sqlStationExist = "SELECT * FROM stations WHERE stationdistrict = '$stationdistrict' AND stationregion = '$stationregion'";
+                           $statement = $conn->prepare($sqlStationExist);
+                           $results = $statement->execute();
+                           $rows = $statement->rowCount();
+
+                           if($rows > 0){
+                            $_SESSION['message'] = "Station Already Exist!";
+                            $_SESSION['alert'] = "alert alert-danger";
+                           }else {
+                         
+                            $sqlInsertStation = "INSERT INTO stations(stationid, stationpassword, stationname, stationdistrict, stationregion)
+                            VALUES('$stationid', '$stationpassword','$stationname', '$stationdistrict', '$stationregion')";
+                            $statement = $conn->prepare($sqlInsertStation);
+                            $results = $statement->execute();
+
+                            if($results){
+                             $_SESSION['message'] = "Station Created Successfully!!";
+                             $_SESSION['alert'] = "alert alert-success";
+                             header("location: view-stations.php");
+                             ob_end_flush();
+                            } else {
+                             $_SESSION['message'] = "Ooops Something Went Wrong!!";
+                             $_SESSION['alert'] = "alert alert-danger";
+                            }
+                           }
                           } else {
                             $_SESSION['message'] = "All Fields Are Required!!";
                             $_SESSION['alert'] = "alert alert-danger";

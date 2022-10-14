@@ -47,16 +47,18 @@ require_once("./includes/dashboard-head.php");?>
                                         <thead class="thead-light">
                                         <tr>
                                             <th class="border-bottom" scope="col">#</th>
-                                            <th class="border-bottom" scope="col">District Names</th>
-                                            <th class="border-bottom" scope="col">Region</th>
-                                            <th class="border-bottom" scope="col">Date Added</th>
+                                            <th class="border-bottom" scope="col">Station ID</th>
+                                            <th class="border-bottom" scope="col">Station Name</th>
+                                            <th class="border-bottom" scope="col">Station District</th>
+                                            <th class="border-bottom" scope="col">Station Region</th>
+                                            <th class="border-bottom" scope="col">Created</th>
                                             <th class="border-bottom" scope="col">Action</th>
                                         </tr>
                                         </thead>
                                         <tbody>
                                             <?php
                                             require_once("./config.php");
-                                                $sql = "SELECT * FROM districts";
+                                                $sql = "SELECT * FROM stations";
                                                 $statement = $conn->prepare($sql);
                                                 $results = $statement->execute();
                                                 $columns = $statement->fetchAll();
@@ -64,19 +66,25 @@ require_once("./includes/dashboard-head.php");?>
 
                                                 if($results){
                                                     foreach($columns as $column){
-                                                        $id = $column['id'];                                                        $districtname = $column['district'];
-                                                        $regionname = $column['regionname'];
+                                                        $id = $column['id'];  
+                                                        $stationid = $column['stationid'];
+                                                        $stationname = $column['stationname'];
+                                                        $stationdistrict = $column['stationdistrict'];
+                                                        $stationregion = $column['stationregion'];
                                                         $createdat = $column['createdat'];
 
                                                         echo "
                                                         <tr>
                                                             <td>{$id}</td>
-                                                            <td>{$districtname}</td>
-                                                            <td>{$regionname}</td>
+                                                            <td>{$stationid}</td>
+                                                            <td>{$stationname}</td>
+                                                            <td>{$stationdistrict}</td>
+                                                            <td>{$stationregion}</td>
                                                             <td>{$createdat}</td>
+
                                                             <td>
-                                                            <a href='edit-districts.php?id={$id}' role='button' class='btn btn-primary'>Edit</a>
-                                                            <a href='delete-districts.php?id={$id}' role='button' class='btn btn-danger'>Delete</a>
+                                                            <a href='edit-stations.php?id={$id}' role='button' class='btn btn-primary'>Edit</a>
+                                                            <a href='delete-station.php?id={$id}' role='button' class='btn btn-danger'>Delete</a>
                                                             </td>
                                                         </tr>
                                                         ";
