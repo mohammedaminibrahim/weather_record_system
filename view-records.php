@@ -45,31 +45,16 @@ require_once("./includes/dashboard-head.php");?>
                                 <div class="table-responsive ">
                                     <table class="table text-center table-flush">
                                         <thead class="thead-light">
-                                        <tr>
-                                          
-                                            <th class="border-bottom text-justify" scope="col" colspan="12">GHANA METEOROLOGICAL AGENCY</th>
-                                            
-                                        </tr>
-                                        <tr>
-                                          
-                                          <th class="border-bottom text-justify" scope="col" colspan="12">CLIMATOLOGICAL DATA</th>
-                                          
-                                      </tr>
-                                      <tr>
-                                          
-                                          <th class="border-bottom text-justify" scope="col" colspan="4">STATION</th>
-                                          <th class="border-bottom text-justify" scope="col" colspan="4">MONTH</th>
-                                          
-                                      </tr>
-                                      <tr>
-                                          
-                                          <th class="border-bottom text-justify text-primary" scope="col" colspan="1">Date</th>
-                                          <th class="border-bottom text-justify" scope="col" colspan="1">Rain Fall</th>
-                                          <th class="border-bottom text-justify" scope="col" colspan="1">Tempreture</th>
-                                          <th class="border-bottom text-justify" scope="col" colspan="1">Wind</th>
-                                          <th class="border-bottom text-justify" scope="col" colspan="1">Relative Tempreture</th>
-                                          <th class="border-bottom text-justify" scope="col" colspan="1">Sun Shine</th>
-                                          <th class="border-bottom text-justify" scope="col" colspan="1">Remarks</th>
+                                        <tr>                          
+                                          <th class="border-bottom text-justify text-primary" scope="col" colspan="1">#</th>
+                                          <th class="border-bottom text-justify" scope="col" >Station ID</th>
+                                          <th class="border-bottom text-justify" scope="col" >Date</th>
+                                          <th class="border-bottom text-justify" scope="col" >Rain Fall</th>
+                                          <th class="border-bottom text-justify" scope="col" >Tempreture</th>
+                                          <th class="border-bottom text-justify" scope="col" >Wind</th>
+                                          <th class="border-bottom text-justify" scope="col" >Relative Tempreture</th>
+                                          <th class="border-bottom text-justify" scope="col" >Sun Shine</th>
+                                          <th class="border-bottom text-justify" scope="col" >Remarks</th>
                                           
                                       </tr>
                                 
@@ -106,6 +91,7 @@ require_once("./includes/dashboard-head.php");?>
 
                                                         echo "
                                                         <tr>
+                                                        <td>{$id}</td>
                                                         <td>{$stationid}</td>
                                                         <td>{$date}</td>
                                                         <td>{$rainfall_mm}</td>
@@ -114,18 +100,10 @@ require_once("./includes/dashboard-head.php");?>
                                                         <td>{$winrun}</td>
                                                         <td>{$direction}</td>
                                                         <td>{$speed}</td>
-                                                        <td>{$rel_humudity_0600}</td>
-                                                        <td>{$rel_humudity_0200}</td>
-                                                        <td>{$rel_humudity_1200}</td>
-                                                        <td>{$rel_humudity_1500}</td>
-                                                        <td>{$sunshine}</td>
-                                                        <td>{$remark}</td>
-                                                        <td>{$createdat}</td>
+                                                        
+                                                       
 
-                                                            <td>
-                                                            <a href='edit-station.php?id={$id}' role='button' class='btn btn-primary'>Edit</a>
-                                                            <a href='delete-station.php?id={$id}' role='button' class='btn btn-danger'>Delete</a>
-                                                            </td>
+                                                        
                                                         </tr>
                                                         ";
                                                     }

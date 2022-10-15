@@ -54,7 +54,7 @@ require_once("./includes/dashboard-head.php");?>
                             $_SESSION['alert'] = "alert alert-danger";
                            }else {
                          
-                            $sqlInsertStation = "INSERT INTO stations(stationid, stationpassword, stationname, stationdistrict, stationregion)
+                            $sqlInsertStation = "INSERT INTO stations(stationid, password, stationname, stationdistrict, stationregion)
                             VALUES('$stationid', '$stationpassword','$stationname', '$stationdistrict', '$stationregion')";
                             $statement = $conn->prepare($sqlInsertStation);
                             $results = $statement->execute();

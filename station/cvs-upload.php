@@ -10,7 +10,7 @@ if(isset($_POST['import'])){
 
         while(($column = fgetcsv($file, 100000, ",")) !== FALSE){
             $sqlInsertdailyRecords = "INSERT INTO daily_records(stationid, date, rainfall_mm, tempmax, tempmin, winrun, direction, speed, rel_humudity_0600, rel_humudity_0200, rel_humudity_1200, rel_humudity_1500, sunshine, remark)
-                                        VALUES('$column[0]', '$column[1]', '$column[2]', '$column[3]', '$column[4]', '$column[5]', '$column[6]', '$column[7]', '$column[8]', '$column[9]', '$column[10]', '$$column[11]', '$column[12]', '$column[13]')";
+                                        VALUES('$column[1]', '$column[2]', '$column[3]', '$column[4]', '$column[5]', '$column[6]', '$column[7]', '$column[8]', '$column[9]', '$column[10]', '$$column[11]', '$column[12]', '$column[13]')";
                $statement = $conn->prepare($sqlInsertdailyRecords);
                $results = $statement->execute();
                if($results){
