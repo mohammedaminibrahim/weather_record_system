@@ -6,10 +6,10 @@
                                 <div class="card-header">
                                     <div class="row align-items-center">
                                         <div class="col">
-                                            <h2 class="fs-5 fw-bold mb-0">Most Recent Birth</h2>
+                                            <h2 class="fs-5 fw-bold mb-0">Most Records</h2>
                                         </div>
                                         <div class="col text-end">
-                                            <a href="#" class="btn btn-sm btn-primary">See all</a>
+                                            <a href="././view-daily-records.php" class="btn btn-sm btn-primary">See all</a>
                                         </div>
                                     </div>
                                 </div>
@@ -18,34 +18,31 @@
                                         <thead class="thead-light">
                                         <tr>
                                             <th class="border-bottom" scope="col">#</th>
-                                            <th class="border-bottom" scope="col">Fullname</th>
-                                            <th class="border-bottom" scope="col">Date of Birth</th>
-                                            <th class="border-bottom" scope="col">Parents Name</th>
-                                            <th class="border-bottom" scope="col">Parents Address</th>
-                                            <th class="border-bottom" scope="col">Parents Contact</th>
+                                            <th class="border-bottom" scope="col">Tempreture</th>
+                                            <th class="border-bottom" scope="col">Relative Humudity</th>
+                                            <th class="border-bottom" scope="col">Sun Shine</th>
+                                            <th class="border-bottom" scope="col">Wind</th>
                                         </tr>
                                         </thead>
                                         <tbody>
                                             
                                          <tr>
                                                         <th class='text-gray-900' scope='row'>
-                                                            {$id}
+                                                            1
                                                         </th>
                                                         <td class='fw-bolder text-gray-500'>
-                                                                {$nameofbaby}
+                                                                7.5
                                                         </td>
                                                         <td class='fw-bolder text-gray-500'>
-                                                            {$dateofbirth}
+                                                            6.8
                                                         </td>
                                                         <td class='fw-bolder text-gray-500'>
-                                                          Mr. & Mrs. {$nameoffather} {$nameofmother}
+                                                         3.2
                                                         </td>
                                                         <td class='fw-bolder text-gray-500'>
-                                                                {$addressofparents}
+                                                         5.2
                                                         </td>
-                                                        <td class='fw-bolder text-gray-500'>
-                                                            {$contactofparents}
-                                                        </td>
+                                                       
                                                       
                                                         </tr>
                                        

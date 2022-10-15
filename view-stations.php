@@ -35,7 +35,7 @@ require_once("./includes/dashboard-head.php");?>
                                 <div class="card-header">
                                     <div class="row align-items-center">
                                         <div class="col">
-                                            <h2 class="fs-5 fw-bold mb-0">Edit Station</h2>
+                                            <h2 class="fs-5 fw-bold mb-0">All Stations</h2>
                                         </div>
                                         <!-- <div class="col text-end">
                                             <a href="#" class="btn btn-sm btn-primary">See all</a>
