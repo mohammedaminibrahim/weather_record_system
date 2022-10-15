@@ -42,8 +42,8 @@ require_once("./includes/dashboard-head.php");?>
                                         </div> -->
                                     </div>
                                 </div>
-                                <div class="table-responsive">
-                                    <table class="table align-items-center table-flush">
+                                <div class="table-responsive ">
+                                    <table class="table text-center table-flush">
                                         <thead class="thead-light">
                                         <tr>
                                           
@@ -57,27 +57,29 @@ require_once("./includes/dashboard-head.php");?>
                                       </tr>
                                       <tr>
                                           
-                                          <th class="border-bottom text-justify" scope="col" colspan="2">STATION</th>
-                                          <th class="border-bottom text-justify" scope="col" colspan="2">MONTH</th>
+                                          <th class="border-bottom text-justify" scope="col" colspan="4">STATION</th>
+                                          <th class="border-bottom text-justify" scope="col" colspan="4">MONTH</th>
                                           
                                       </tr>
                                       <tr>
                                           
-                                          <th class="border-bottom text-justify" scope="col" colspan="12">CLIMATOLOGICAL DATA</th>
+                                          <th class="border-bottom text-justify text-primary" scope="col" colspan="1">Date</th>
+                                          <th class="border-bottom text-justify" scope="col" colspan="1">Rain Fall</th>
+                                          <th class="border-bottom text-justify" scope="col" colspan="1">Tempreture</th>
+                                          <th class="border-bottom text-justify" scope="col" colspan="1">Wind</th>
+                                          <th class="border-bottom text-justify" scope="col" colspan="1">Relative Tempreture</th>
+                                          <th class="border-bottom text-justify" scope="col" colspan="1">Sun Shine</th>
+                                          <th class="border-bottom text-justify" scope="col" colspan="1">Remarks</th>
                                           
                                       </tr>
-                                        <tr>
-                                        <th class="border-bottom" scope="col">Station Name</th>
-                                            <th class="border-bottom" scope="col">Station District</th>
-                                            <th class="border-bottom" scope="col">Station Region</th>
-                                            <th class="border-bottom" scope="col">Created</th>
-                                            <th class="border-bottom" scope="col">Action</th>
-                                        </tr>
+                                
                                         </thead>
                                         <tbody>
                                             <?php
                                             require_once("./config.php");
-                                                $sql = "SELECT * FROM stations";
+                                            $stationid = $_SESSION['stationid'];
+                                            $stationname = $_SESSION['stationname'];
+                                                $sql = "SELECT * FROM daily_records WHERE stationid = '$stationid'";
                                                 $statement = $conn->prepare($sql);
                                                 $results = $statement->execute();
                                                 $columns = $statement->fetchAll();
@@ -87,19 +89,38 @@ require_once("./includes/dashboard-head.php");?>
                                                     foreach($columns as $column){
                                                         $id = $column['id'];  
                                                         $stationid = $column['stationid'];
-                                                        $stationname = $column['stationname'];
-                                                        $stationdistrict = $column['stationdistrict'];
-                                                        $stationregion = $column['stationregion'];
+                                                        $date = $column['date'];
+                                                        $rainfall_mm = $column['rainfall_mm'];
+                                                        $tempmax = $column['tempmax'];
+                                                        $tempmin = $column['tempmin'];
+                                                        $winrun = $column['winrun'];
+                                                        $direction = $column['direction'];
+                                                        $speed = $column['speed'];
+                                                        $rel_humudity_0600 = $column['rel_humudity_0600'];
+                                                        $rel_humudity_0200 = $column['rel_humudity_0200'];
+                                                        $rel_humudity_1200 = $column['rel_humudity_1200'];
+                                                        $rel_humudity_1500 = $column['rel_humudity_1500'];
+                                                        $sunshine = $column['sunshine'];
+                                                        $remark = $column['remark'];
                                                         $createdat = $column['createdat'];
 
                                                         echo "
                                                         <tr>
-                                                            <td>{$id}</td>
-                                                            <td>{$stationid}</td>
-                                                            <td>{$stationname}</td>
-                                                            <td>{$stationdistrict}</td>
-                                                            <td>{$stationregion}</td>
-                                                            <td>{$createdat}</td>
+                                                        <td>{$stationid}</td>
+                                                        <td>{$date}</td>
+                                                        <td>{$rainfall_mm}</td>
+                                                        <td>{$tempmax}</td>
+                                                        <td>{$tempmin}</td>
+                                                        <td>{$winrun}</td>
+                                                        <td>{$direction}</td>
+                                                        <td>{$speed}</td>
+                                                        <td>{$rel_humudity_0600}</td>
+                                                        <td>{$rel_humudity_0200}</td>
+                                                        <td>{$rel_humudity_1200}</td>
+                                                        <td>{$rel_humudity_1500}</td>
+                                                        <td>{$sunshine}</td>
+                                                        <td>{$remark}</td>
+                                                        <td>{$createdat}</td>
 
                                                             <td>
                                                             <a href='edit-station.php?id={$id}' role='button' class='btn btn-primary'>Edit</a>

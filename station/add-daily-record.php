@@ -1,5 +1,6 @@
 <?php 
 session_start();
+ob_start();
 require_once("./includes/dashboard-head.php");?>
 
        <?php
@@ -75,6 +76,7 @@ require_once("./includes/dashboard-head.php");?>
                                             $_SESSION['message'] = "Recoreds Recorded Successfully!!";
                                             $_SESSION['alert'] = "alert alert-success";
                                             header("location: view-daily-records.php");
+                                            ob_end_flush();
                                         } else {
                                             $_SESSION['message'] = "Oooops Something Went Wrong!!";
                                                  $_SESSION['alert'] = "alert alert-warning";
