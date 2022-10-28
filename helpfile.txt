@@ -1,0 +1,6 @@
+1. start apache and my sql 
+2. open any browser and type localhost
+3. click on phpmyadmin
+4. create a database and name it weather_record
+5. now click on import at the top, the one after Quey
+6. then upload the file call weather_record.sql from the files you exported. 
